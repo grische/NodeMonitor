@@ -12,7 +12,7 @@ class NodeStatusService {
                 if (!gluonNode.batmanAdv!!.vpnConnected) {
                     errors.add(NodeError.NO_VPN_CONNECTED)
                 }
-                if (gluonNode.batmanAdv!!.tq == 0) {
+                if (!gluonNode.batmanAdv!!.hasGateway) {
                     errors.add(NodeError.NO_GATEWAY)
                 }
                 if (gluonNode.batmanAdv!!.originators == 0) {
