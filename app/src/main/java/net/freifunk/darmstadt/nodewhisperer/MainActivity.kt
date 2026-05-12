@@ -257,6 +257,7 @@ class MainActivity : ComponentActivity() {
                 nodeObject.put("firmware_version", node.firmwareVersion ?: "")
                 nodeObject.put("vpn_connected", node.batmanAdv?.vpnConnected ?: false)
                 nodeObject.put("gateway_tq", node.batmanAdv?.tq ?: 0)
+                nodeObject.put("gateway_throughput_kbps", node.batmanAdv?.throughputKbps ?: 0)
                 nodeObject.put("neighbors", node.batmanAdv?.neighbors ?: 0)
                 nodeObject.put("originators", node.batmanAdv?.originators ?: 0)
                 nodeObject.put("clients", node.batmanAdv?.clients ?: 0)
@@ -526,10 +527,17 @@ fun NodeInfoBottomSheet(
                     )
                 )
                 NodeInfoDialogProperty(stringResource(R.string.node_gateway),
-                    if (node.batmanAdv!!.tq > 0) stringResource(
-                        R.string.node_batman_gw_reachable,
-                        (node.batmanAdv!!.tq / 255.0 * 100.0).toInt()
-                    ) else stringResource(R.string.node_batman_gw_not_reachable)
+                    when {
+                        node.batmanAdv!!.throughputKbps > 0 -> stringResource(
+                            R.string.node_batman_gw_reachable_throughput,
+                            node.batmanAdv!!.throughputKbps
+                        )
+                        node.batmanAdv!!.tq > 0 -> stringResource(
+                            R.string.node_batman_gw_reachable,
+                            (node.batmanAdv!!.tq / 255.0 * 100.0).toInt()
+                        )
+                        else -> stringResource(R.string.node_batman_gw_not_reachable)
+                    }
                 )
                 NodeInfoDialogProperty(stringResource(R.string.node_neighbors),
                     node.batmanAdv!!.neighbors.toString()

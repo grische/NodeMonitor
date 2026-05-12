@@ -21,6 +21,7 @@
     <string name="node_vpn_connected">Verbunden</string>
     <string name="node_vpn_not_connected">Nicht Verbunden</string>
     <string name="node_batman_gw_reachable">Erreichbar (%d%%)</string>
+    <string name="node_batman_gw_reachable_throughput">Erreichbar (%d kbps)</string>
     <string name="node_batman_gw_not_reachable">Nicht Erreichbar</string>
     <string name="fab_scan_stop">Stop</string>
     <string name="fab_scan_start">Start</string>
