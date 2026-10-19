@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "net.freifunk.darmstadt.nodewhisperer"
-        minSdk = 30
+        minSdk = 23
         targetSdk = 36
         versionCode = 6
         versionName = "1.1.3"
