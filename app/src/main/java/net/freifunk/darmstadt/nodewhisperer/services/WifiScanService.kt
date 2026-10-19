@@ -45,7 +45,7 @@ class WifiScanService(context: Context, private val scope: CoroutineScope) {
     }
 
     private fun getManager(): WifiManager {
-        return context.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        return context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
     }
 
     private fun scanSuccess() {
